@@ -1,2 +1,0 @@
-C:\Users\Ana\Documents\Visual Studio 2015\Projects\biogam\biogam\platforms\android\build\intermediates\classes\debug
-C:\Users\Ana\Documents\Visual Studio 2015\Projects\biogam\biogam\platforms\android\build\intermediates\pre-dexed\debug\classes-4ff960dca1a9ccd4adfe66fac5d22e98484b7bd6.jar

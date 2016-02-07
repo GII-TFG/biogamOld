@@ -1,0 +1,53 @@
+﻿body {
+}
+.col{
+    display:inline;
+}
+#circles{
+    padding-top:30px;
+    margin-top:30px;
+
+}
+#exerciseHeading{
+    width: 350px;
+    height:150px;
+    padding:15px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+    padding-top:10px;
+}
+#questionNum{
+    text-align:center;
+    margin-top:10px;
+}
+.row #buttonRow{
+    padding-top:5px;
+}
+.col.button-outline#ebuttonOption{
+    font-size:15px;   
+}
+#types{
+   margin:0px;
+   text-align:center;
+}
+#numberA,#numberB{
+   border:2px solid #886aea;
+   width:75px;
+   display:inline;
+   margin-left:6px;
+}
+#box{
+    border-color:darkgray;
+    margin-left:7px;
+    margin-right:7px;
+    margin-top:7px;
+    margin-bottom:7px;
+    height:180px;
+    padding:2px;
+}
+#rowTextbox{
+    padding-top:5px;
+    position:center;
+}
+
+
