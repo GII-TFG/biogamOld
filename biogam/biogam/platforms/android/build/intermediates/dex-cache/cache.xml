@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
+        jar="C:\Users\Ana\Documents\Visual Studio 2015\Projects\biogam\biogam\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
         jumboMode="false"
-        revision="23.0.2"
-        sha1="b02cad1c8b4804235b0d39ee31538dafaad8c1aa">
-        <dex dex="/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/build/intermediates/pre-dexed/debug/classes-18a61c340f7e688cbdf207289a49793da82e4934.jar" />
+        revision="22.0.1"
+        sha1="c0d2d698bfdddf199461a5dd8e793d61991e9b27">
+        <dex dex="C:\Users\Ana\Documents\Visual Studio 2015\Projects\biogam\biogam\platforms\android\build\intermediates\pre-dexed\debug\classes-4ff960dca1a9ccd4adfe66fac5d22e98484b7bd6.jar" />
     </item>
 
 </items>

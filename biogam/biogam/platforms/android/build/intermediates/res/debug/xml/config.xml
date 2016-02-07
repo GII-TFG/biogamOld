@@ -21,7 +21,7 @@
     <name>biogam</name>
     <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">Apache Cordova Team </author>
-    <content src="login.html" />
+    <content src="index.html" />
     <access origin="*" />
     <vs:features />
     <preference name="SplashScreen" value="screen" />
@@ -33,4 +33,4 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
 </widget>
-<!-- From: file:/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/res/xml/config.xml -->
+<!-- From: file:/C:/Users/Ana/Documents/Visual%20Studio%202015/Projects/biogam/biogam/platforms/android/res/xml/config.xml -->
