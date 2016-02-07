@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b02cad1c8b4804235b0d39ee31538dafaad8c1aa">
+        <dex dex="/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/build/intermediates/pre-dexed/debug/classes-18a61c340f7e688cbdf207289a49793da82e4934.jar" />
+    </item>
+
+</items>

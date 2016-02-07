@@ -1,0 +1,2 @@
+/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/build/intermediates/classes/debug
+/home/gian/TFG/Proyecto/biogam/biogam/platforms/android/build/intermediates/pre-dexed/debug/classes-18a61c340f7e688cbdf207289a49793da82e4934.jar
