@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("myapp", ["ionic", "myapp.controllers", "myapp.services"])
+    angular.module('myapp', [])
         .run(function ($ionicPlatform) {
             $ionicPlatform.ready(function () {
                 if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -28,7 +28,7 @@
             $urlRouterProvider.otherwise("/app/home");
         });
 })();
-var applog = angular.module('myAppIndex', ['ngRoute']);
+var applog = angular.module('myApp', ['ngRoute']);
 applog.config(['$routeProvider', function($routeProvider) {
     $locationProvider.hasPrefix('!');
     $routeProvider
