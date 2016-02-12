@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -47,36 +47,47 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('home.locus', {
-    url: '/locus',
+    .state('home.tet', {
+    url: '/:gameId',
     views: {
-        'home-tab@tabs': {
+        'home-tab@tabs': { //remember @ choose the state to go
           templateUrl: 'app/templates/page2TET.html',
-          //controller: 'ChatsCtrl'
+          controller: 'TetCtrl'
         }
       }
     })
 
-  
-    .state('home.loci', {
-      url: '/loci',
+    
+    .state('home.tet.0', {
+      url: '/theory',
       views: {
         'home-tab@tabs': {
-          templateUrl: 'app/templates/page2TET.html',
+          templateUrl: 'app/templates/theory.html',
           //controller: 'ChatDetailCtrl'
         }
       }
     })
 
-  .state('home.meiosis', {
-    url: '/mitosis',
-    views: {
-      'tab-account': {
-        templateUrl: 'app/templates/page2TET.html',
-        //controller: 'AccountCtrl'
+  .state('home.tet.1', {
+      url: '/exercises',
+      views: {
+        'home-tab@tabs': {
+          templateUrl: 'app/templates/exercises.html',
+          //controller: 'ChatDetailCtrl'
+        }
       }
-    }
-  });
+    })
+
+
+    .state('home.tet.2', {
+      url: '/test',
+      views: {
+        'home-tab@tabs': {
+          templateUrl: 'app/templates/test.html',
+          //controller: 'ChatDetailCtrl'
+        }
+      }
+    })
 
         $urlRouterProvider.otherwise('tab/home');
 
