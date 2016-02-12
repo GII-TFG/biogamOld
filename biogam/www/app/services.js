@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 angular.module('starter.services', [])
 
 .factory('Games', function() {
@@ -85,7 +85,4 @@ P.D. una estructura compleja es una estructura que tiene como uno de sus campos 
     }
   };
 });
-=======
-angular.module("starter.services", [])
-.factory('lessonFactory', function())
->>>>>>> cd2171cbc96c6064a7c318d0a23bf58b8c2afdf0
+
