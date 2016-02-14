@@ -9,7 +9,7 @@ angular.module('starter.services', [])
     el name (locus, loci....), y por ultimo una descripcion, se que en la bd habra mas campos pero de momento con eso me sirve,
     esta variable games representara los datos que se cargan desde la bd , ojo cuando lo consigais tendreis que meter todo en la
     misma varibale asi no habra repercusiones posteriores 	*/
-  /*var games = [{
+  var games = [{
     id: 0,
     name: 'One Locus',
     description: ''
@@ -29,7 +29,7 @@ angular.module('starter.services', [])
     name: 'Meiosis',
     description: ''
  
-  }];*/
+  }];
 
   return {
     all: function() {

@@ -1,20 +1,16 @@
 angular.module('starter.controllers', [])
 
 //.controller('HomeCtrl', function($scope, Games) {
-.controller('HomeCtrl',['$scope','$http','$log', function($scope,$http,$log){
+.controller('HomeCtrl',['$scope','$http', function($scope,$http){
   
-//$http.get('app/db.php')
-$http.get('app/db.php').success(function(temas){
- // $scope.games = Games.all();
-  //$scope.remove = function(game) {
-    //Chats.remove(game);
-
-     $scope.games = temas;
+	
+$http.get('http://localhost/biogam_serve/index.php/biogam')
+.success(function(result){
+  
+  $scope.games = result;
+    
   })
-  .error(function(err){
-  	$log.error(err);
-  })
-
+  
 }])
 
 .controller('TetCtrl', function($scope, $stateParams, Games, TypeGame) {
