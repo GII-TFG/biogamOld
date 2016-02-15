@@ -5,15 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-.run(function($ionicPlatform, $cordovaSQLite) {
+.run(function($ionicPlatform, $cordovaSQLite, $rootScope) {
   $ionicPlatform.ready(function() {
 
 
-		window.plugins.sqlDB.copy("biogamdb", function() {
-                db = $cordovaSQLite.openDB("biogamdb");
-                $location.path("tab/home");
-                $ionicLoading.hide();
-});
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -29,6 +24,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+  window.plugins.sqlDB.copy("biogamdb", function(){
+
+    db = $cordovaSQLite.openDB("biogamdb");
+
+  }, function(error){
+
+    db = $cordovaSQLite.openDB("biogamdb");
+
+  });
+  
+  
   });
 })
 
@@ -100,5 +107,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
         $urlRouterProvider.otherwise('tab/home');
 
-  }); 
+  })
+
+  .controller("HomeCtrl", function($scope, $cordovaSQLite) {
+
+      
+    $scope.games = function(){
+ 
+        var query = "SELECT id, name FROM tema";
+        $cordovaSQLite.execute(db, query, []).then(function(res) {
+           
+            if(res.rows.length > 0) {
+                for(var i = 0; i < res.rows.length; i++) {
+                    console.log("SELECTED ->");
+                }
+            }else{ console.log("NO HAY resultados");}
+        }, function (error) {
+            console.error(error);
+        });
+    
+    
+    }
+});
 
