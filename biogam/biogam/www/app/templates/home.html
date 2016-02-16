@@ -1,0 +1,13 @@
+<ion-view title="Home">
+ <ion-content class="padding">    
+    
+ <ion-list>
+   
+    <a class="button button-outline button button-block button-large button-dark" ng-repeat="game in games"
+        href="#/tab/home/{{game.id}}">
+        {{game.name}} 
+    </a>    
+           
+     </ion-list>    
+ </ion-content>
+</ion-view>
