@@ -3,44 +3,46 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+angular.module('starter', ['ionic','starter.controllers','starter.services', 'ngCordova' ])
 
-.run(function($ionicPlatform, $cordovaSQLite, $rootScope) {
+.run(function($ionicPlatform, DB, $state) {
   $ionicPlatform.ready(function() {
 
-
+   
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
+      
+
+      DB.init();
+
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
 
       // Don't remove this line unless you know what you are doing. It stops the viewport
       // from snapping when text inputs are focused. Ionic handles this internally for
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
 
+
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
 
-  window.plugins.sqlDB.copy("biogamdb", function(){
-
-    db = $cordovaSQLite.openDB("biogamdb");
-
-  }, function(error){
-
-    db = $cordovaSQLite.openDB("biogamdb");
+    $state.go('home');
 
   });
-  
-  
-  });
-})
+
+
+}
+)
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+
+   $stateProvider
+
     .state('scaffold', {
     abstract: true,
     templateUrl: "app/templates/scaffold.html"
@@ -105,28 +107,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
-        $urlRouterProvider.otherwise('tab/home');
+        //$urlRouterProvider.otherwise('');
 
-  })
+  });
 
-  .controller("HomeCtrl", function($scope, $cordovaSQLite) {
-
-      
-    $scope.games = function(){
- 
-        var query = "SELECT id, name FROM tema";
-        $cordovaSQLite.execute(db, query, []).then(function(res) {
-           
-            if(res.rows.length > 0) {
-                for(var i = 0; i < res.rows.length; i++) {
-                    console.log("SELECTED ->");
-                }
-            }else{ console.log("NO HAY resultados");}
-        }, function (error) {
-            console.error(error);
-        });
-    
-    
-    }
-});
+  
 

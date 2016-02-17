@@ -1,48 +1,58 @@
+
+var db;
 angular.module('starter.services', [])
 
-.factory('Games', function() {
-  // Might use a resource here that returns a JSON array
 
-  // Para mis chicas preciosas:
-  /*Voy a poner unos datos estaticos para ir tirando de ellos y hacer las cosas bien en las vistas evitando hard-code,
-    en esta variable games guardare los juegos, que tendran un id que nunca sera el nombre del juego, lo mismo en la bd,
-    el name (locus, loci....), y por ultimo una descripcion, se que en la bd habra mas campos pero de momento con eso me sirve,
-    esta variable games representara los datos que se cargan desde la bd , ojo cuando lo consigais tendreis que meter todo en la
-    misma varibale asi no habra repercusiones posteriores 	*/
-  var games = [{
-    id: 0,
-    name: 'One Locus',
-    description: ''
+
+.factory('DB', function($ionicPlatform, $cordovaSQLite){
   
-  }, {
-    id: 1,
-    name: 'Two loci',
-    description: ''
+
+  console.log("services");
+    return {
+
+      
+      init: function(){
+
+        window.plugins.sqlDB.copy("biogamdb",0, function(){
     
-  }, {
-    id: 2,
-    name: 'Mitosis',
-    description: ''
+           db = $cordovaSQLite.openDB("biogamdb");
+
+        }, function(error){
+          
+            db = $cordovaSQLite.openDB("biogamdb");
+     
+         });
+          return db;
+      }
+    }
+})
+.factory('Temas', function($cordovaSQLite) {
   
-  }, {
-    id: 3,
-    name: 'Meiosis',
-    description: ''
- 
-  }];
+      var temas = [];
 
   return {
     all: function() {
-      return games;
-    },
-   
-    get: function(gameId) {
-      for (var i = 0; i < games.length; i++) {
-        if (games[i].id === parseInt(gameId)) {
-          return games[i];
+    
+    var query ="SELECT name FROM tema";
+
+    $cordovaSQLite.execute(db, query).then(function(res){
+
+        if(res.rows.length > 0){
+
+          for(var i = 0; i<res.rows.length ; i++){
+            temas.push({name: res.rows.item(i).name});
+          }
+
+        }else{
+
+           console.log("Not found results");
         }
-      }
-      return null;
+
+    })
+
+
+      return temas;
+    
     }
   };
 })
