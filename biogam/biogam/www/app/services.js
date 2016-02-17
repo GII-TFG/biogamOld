@@ -15,12 +15,11 @@ angular.module('starter.services', [])
 
         window.plugins.sqlDB.copy("biogamdb",0, function(){
     
-         db = $cordovaSQLite.openDB("biogamdb");
+           db = $cordovaSQLite.openDB("biogamdb");
 
         }, function(error){
           
-          console.log("estoy abriendo la bd");
-         db = $cordovaSQLite.openDB("biogamdb");
+            db = $cordovaSQLite.openDB("biogamdb");
      
          });
           return db;
@@ -29,19 +28,21 @@ angular.module('starter.services', [])
 })
 .factory('Temas', function($cordovaSQLite) {
   
-
-  var games;
+      var temas = [];
 
   return {
     all: function() {
     
-    var query ="SELECT tema FROM tema";
+    var query ="SELECT name FROM tema";
 
-    $cordovaSQLite.execute(db, query).then(function(resultado){
+    $cordovaSQLite.execute(db, query).then(function(res){
 
-        if(resultado.rows.length > 0){
+        if(res.rows.length > 0){
 
-          console.log(resultado.rows.item(0).tema);
+          for(var i = 0; i<res.rows.length ; i++){
+            temas.push({name: res.rows.item(i).name});
+          }
+
         }else{
 
            console.log("Not found results");
@@ -50,7 +51,7 @@ angular.module('starter.services', [])
     })
 
 
-      return null;
+      return temas;
     
     }
   };

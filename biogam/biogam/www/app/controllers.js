@@ -5,9 +5,7 @@ angular.module('starter.controllers', [])
 
 .controller("HomeCtrl", function($scope, Temas ) {
 
-     console.log("yo uso la bd ");
-
-     Temas.all();
+     $scope.temas = Temas.all();
     
 })
 
