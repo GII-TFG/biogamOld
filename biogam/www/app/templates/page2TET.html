@@ -1,20 +1,13 @@
 ﻿<ion-view title="">
   <ion-content class="padding">
-       <header class="bar bar-header bar-royal">
-        <button class="button icon ion-chevron-left"></button>
-        <h1 class="title">One Locus</h1> <!--este título tiene que ser dinámico-->
-        <button class="button icon ion-navicon"></button>
-    </header>
-    <div class="container">
-        <button class="button button-block button-large button-energized" id="Theory">
-            Theory
-        </button>
-        <button class="button button-block button-large button-balanced">
-            Exercises
-        </button>
-        <button class="button button-outline button-block button-large button-calm">
-            Test
-        </button>
-    </div>
+   <h1>{{game.name}}</h1>
+   <ion-list>
+   
+    <a class="button button-outline button button-block button-large button-dark" ng-repeat="type in typeGames"
+        ui-sref='home.tet.{{type.id}}'>
+        {{type.name}}
+    </a>    
+           
+     </ion-list> 
   </ion-content>
 </ion-view>

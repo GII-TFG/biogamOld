@@ -1,20 +1,13 @@
 <ion-view title="Home">
  <ion-content class="padding">    
-         
-        <a class="button button-outline button-block button-large button-energized" ng-click="toTET('locus')">
-             One locus  
-        </a>
-
-        <a class="button button-outline button-block button-large button-balanced" ng-click="toTET('loci')">
-            Two loci
-        </a>
-
-        <a class="button button-outline button-block button-large button-calm" ng-click="toTET('mitosis')">
-            Mitosis
-        </a>
-        <a class="button button-outline button-block button-large button-assertive" ng-click="toTET('meiosis')">
-            Meiosis
-        </a>
-
-    </ion-content>
+    
+ <ion-list>
+   
+    <a class="button button-outline button button-block button-large button-dark" ng-repeat="tema in temas"
+        href="#/tab/home/{{game.id}}">
+        {{tema.name}} 
+    </a>    
+           
+     </ion-list>    
+ </ion-content>
 </ion-view>
