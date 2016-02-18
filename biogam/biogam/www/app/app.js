@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic','starter.controllers','starter.services', 'ngCordova' ])
 
-.run(function($ionicPlatform, DB, $state) {
+.run(function($ionicPlatform, $state, $rootScope, $cordovaSQLite) {
   $ionicPlatform.ready(function() {
 
    
@@ -13,7 +13,18 @@ angular.module('starter', ['ionic','starter.controllers','starter.services', 'ng
     if(window.cordova && window.cordova.plugins.Keyboard) {
       
 
-      DB.init();
+     // DB.init();
+
+
+        window.plugins.sqlDB.copy("biogamdb",0, function(){
+    
+           $rootScope.db = $cordovaSQLite.openDB("biogamdb");
+
+        }, function(error){
+          
+           $rootScope.db = $cordovaSQLite.openDB("biogamdb");
+     
+         });
 
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -66,7 +77,7 @@ angular.module('starter', ['ionic','starter.controllers','starter.services', 'ng
     })
 
     .state('home.tet', {
-    url: '/:gameId',
+    url: '/:temaId',
     views: {
         'home-tab@tabs': { //remember @ choose the state to go
           templateUrl: 'app/templates/page2TET.html',
@@ -76,7 +87,7 @@ angular.module('starter', ['ionic','starter.controllers','starter.services', 'ng
     })
 
     
-    .state('home.tet.0', {
+    .state('home.tet.1', {
       url: '/theory',
       views: {
         'home-tab@tabs': {
@@ -86,7 +97,7 @@ angular.module('starter', ['ionic','starter.controllers','starter.services', 'ng
       }
     })
 
-  .state('home.tet.1', {
+  .state('home.tet.2', {
       url: '/exercises',
       views: {
         'home-tab@tabs': {
@@ -97,7 +108,7 @@ angular.module('starter', ['ionic','starter.controllers','starter.services', 'ng
     })
 
 
-    .state('home.tet.2', {
+    .state('home.tet.', {
       url: '/test',
       views: {
         'home-tab@tabs': {

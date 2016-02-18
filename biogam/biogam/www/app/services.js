@@ -1,10 +1,9 @@
 
-var db;
 angular.module('starter.services', [])
 
 
 
-.factory('DB', function($ionicPlatform, $cordovaSQLite){
+/*.factory('DB', function($ionicPlatform, $cordovaSQLite){
   
 
   console.log("services");
@@ -25,8 +24,8 @@ angular.module('starter.services', [])
           return db;
       }
     }
-})
-.factory('Temas', function($cordovaSQLite) {
+})*/
+.factory('Temas', function($cordovaSQLite,$rootScope) {
   
       var temas = [];
 
@@ -35,12 +34,43 @@ angular.module('starter.services', [])
     
     var query ="SELECT name FROM tema";
 
-    $cordovaSQLite.execute(db, query).then(function(res){
+    $cordovaSQLite.execute($rootScope.db, query).then(function(res){
 
         if(res.rows.length > 0){
 
           for(var i = 0; i<res.rows.length ; i++){
             temas.push({name: res.rows.item(i).name});
+          }
+
+        }else{
+
+           console.log("Not found results");
+        }
+
+    })
+
+
+      return temas;
+    
+    }
+  };
+})
+
+.factory('TeoriaPorTema', function($cordovaSQLite,$rootScope) {
+  
+      var capsTeoria = [];
+
+  return {
+    getTeoriaDeTema: function(idTema) {
+    
+    var query ="SELECT titulo, texto FROM  teoria WHERE temaId=?";
+
+    $cordovaSQLite.execute($rootScope.db, query, [idTema]).then(function(res){
+
+        if(res.rows.length > 0){
+
+          for(var i = 0; i<res.rows.length ; i++){
+            capsTeoria.push({titulo: res.rows.item(i).titulo , texto:res.rows.item(i).texto});
           }
 
         }else{
@@ -63,34 +93,33 @@ cargas desde bd que ya de por si daran estructuras complejas
 
 P.D. una estructura compleja es una estructura que tiene como uno de sus campos otra estrcutra */
 
-.factory('TypeGame', function() {
+.factory('Categorias', function($cordovaSQLite,$rootScope) {
  
-  var typeGames = [{
-    id: 0,
-    name: 'Theory',
-     
-  }, {
-    id: 1,
-    name: 'Exercises',
-      
-  }, {
-    id: 2,
-    name: 'Test',
-     
-  }];
+  var categorias = [];
 
   return {
-    all: function() {
-      return typeGames;
-    },
-   
-    get: function(typeGameId) {
-      for (var i = 0; i < typeGames.length; i++) {
-        if (typeGames[i].id === parseInt(typeGameId)) {
-          return typeGames[i];
+
+  
+      
+    getCategoriasTema: function(idTema) {
+
+        var query ="SELECT name FROM categoria where idTema = ?";
+     
+    $cordovaSQLite.execute($rootScope.db, query, [idTema]).then(function(res){
+
+        if(res.rows.length > 0){
+
+          for(var i = 0; i<res.rows.length ; i++){
+            categorias.push({titulo: res.rows.item(i).name });
+          }
+
+        }else{
+
+           console.log("Not found results");
         }
-      }
-      return null;
+
+    })
+      return categorias;
     }
   };
 });

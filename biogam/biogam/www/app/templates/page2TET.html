@@ -1,11 +1,11 @@
 ﻿<ion-view title="">
   <ion-content class="padding">
-   <h1>{{game.name}}</h1>
+   <h1>{{tema.name}}</h1>
    <ion-list>
    
-    <a class="button button-outline button button-block button-large button-dark" ng-repeat="type in typeGames"
-        ui-sref='home.tet.{{type.id}}'>
-        {{type.name}}
+    <a class="button button-outline button button-block button-large button-dark" ng-repeat="categoria in categorias"
+        ui-sref='home.tet.{{categoria.id}}'>
+        {{categoria.name}}
     </a>    
            
      </ion-list> 
